@@ -13,37 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: akuity/kargo-render-action@1efacd1d0b6c86ca1d3bc4c842e2b82e36d8f7d7
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/test
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
   render-stage-manifests-stage:
     name: Render staging manifests
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: akuity/kargo-render-action@1efacd1d0b6c86ca1d3bc4c842e2b82e36d8f7d7
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/staging
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
   render-prod-manifests-stage:
     name: Render prod manifests
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: akuity/kargo-render-action@1efacd1d0b6c86ca1d3bc4c842e2b82e36d8f7d7
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/prod
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
