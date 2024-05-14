@@ -1,0 +1,38 @@
+configVersion: v1alpha1
+branchConfigs:
+  - name: env/test
+    appConfigs:
+      rollouts:
+        configManagement:
+          path: charts/argo-rollouts
+          helm:
+            releaseName: argo-rollouts
+            valueFiles:
+              - charts/argo-rollouts/values-test.yaml
+        outputPath: rollouts-rendered
+    prs:
+      enabled: false # Changes should immediately be propagated to test envs
+  - name: env/staging
+    appConfigs:
+      rollouts:
+        configManagement:
+          path: charts/argo-rollouts
+          helm:
+            releaseName: argo-rollouts
+            valueFiles:
+              - charts/argo-rollouts/values-staging.yaml
+        outputPath: rollouts-rendered
+    prs:
+      enabled: true
+  - name: env/prod
+    appConfigs:
+      rollouts:
+        configManagement:
+          path: charts/argo-rollouts
+          helm:
+            releaseName: argo-rollouts
+            valueFiles:
+              - charts/argo-rollouts/values-prod.yaml
+        outputPath: rollouts-rendered
+    prs:
+      enabled: true

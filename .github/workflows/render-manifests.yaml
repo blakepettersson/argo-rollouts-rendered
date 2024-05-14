@@ -1,0 +1,32 @@
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  render-test-manifests-stage:
+    name: Render test manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render manifests
+        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        with:
+          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          targetBranch: env/test
+  render-stage-manifests-stage:
+    name: Render staging manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render manifests
+        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        with:
+          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          targetBranch: env/staging
+  render-prod-manifests-stage:
+    name: Render prod manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render manifests
+        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        with:
+          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          targetBranch: env/prod

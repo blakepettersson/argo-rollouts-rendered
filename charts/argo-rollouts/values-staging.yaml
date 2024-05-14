@@ -1,0 +1,22 @@
+argo-rollouts:
+  controller:
+    # -- Labels to be added to the application controller pods
+    podLabels:
+      env: staging
+
+    # -- The number of controller pods to run
+    replicas: 2
+
+    # -- Additional environment variables for rollouts-controller. A list of name/value maps.
+    extraEnv:
+      - name: STAGE
+        value: staging
+
+    # -- Resource limits and requests for the controller pods.
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
