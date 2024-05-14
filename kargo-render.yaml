@@ -23,7 +23,7 @@ branchConfigs:
               - values-staging.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: true
+      enabled: false
   - name: env/prod
     appConfigs:
       rollouts:
@@ -35,4 +35,4 @@ branchConfigs:
               - values-prod.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: true
+      enabled: false

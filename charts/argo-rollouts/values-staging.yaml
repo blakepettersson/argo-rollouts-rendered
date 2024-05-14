@@ -5,7 +5,7 @@ argo-rollouts:
       env: staging
 
     # -- The number of controller pods to run
-    replicas: 2
+    replicas: 3
 
     # -- Additional environment variables for rollouts-controller. A list of name/value maps.
     extraEnv:
