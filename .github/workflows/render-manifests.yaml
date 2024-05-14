@@ -17,6 +17,10 @@ jobs:
         with:
           personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
           targetBranch: env/test
+        env:
+          XDG_CONFIG_HOME: /tmp
+          XDG_CACHE_HOME: /tmp
+          XDG_DATA_HOME: /tmp
   render-stage-manifests-stage:
     name: Render staging manifests
     runs-on: ubuntu-latest
@@ -26,6 +30,10 @@ jobs:
         with:
           personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
           targetBranch: env/staging
+        env:
+          XDG_CONFIG_HOME: /tmp
+          XDG_CACHE_HOME: /tmp
+          XDG_DATA_HOME: /tmp
   render-prod-manifests-stage:
     name: Render prod manifests
     runs-on: ubuntu-latest
@@ -35,3 +43,7 @@ jobs:
         with:
           personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
           targetBranch: env/prod
+        env:
+          XDG_CONFIG_HOME: /tmp
+          XDG_CACHE_HOME: /tmp
+          XDG_DATA_HOME: /tmp
