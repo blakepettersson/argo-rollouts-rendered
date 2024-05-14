@@ -15,7 +15,7 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/test
         env:
           XDG_CONFIG_HOME: /tmp
@@ -28,7 +28,7 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/staging
         env:
           XDG_CONFIG_HOME: /tmp
@@ -41,7 +41,7 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/prod
         env:
           XDG_CONFIG_HOME: /tmp
