@@ -5,7 +5,7 @@ argo-rollouts:
       env: prod
 
     # -- The number of controller pods to run
-    replicas: 3
+    replicas: 2
 
     # -- Additional environment variables for rollouts-controller. A list of name/value maps.
     extraEnv:
@@ -15,8 +15,8 @@ argo-rollouts:
     # -- Resource limits and requests for the controller pods.
     resources:
       limits:
-        cpu: 500m
-        memory: 512Mi
+        cpu: 1
+        memory: 1Gi
       requests:
         cpu: 250m
-        memory: 256Mi
+        memory: 512Mi

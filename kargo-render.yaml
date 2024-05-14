@@ -11,7 +11,7 @@ branchConfigs:
               - values-test.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: false
+      enabled: false # Test branch always gets
   - name: env/staging
     appConfigs:
       rollouts:
@@ -23,7 +23,7 @@ branchConfigs:
               - values-staging.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: false
+      enabled: true
   - name: env/prod
     appConfigs:
       rollouts:
@@ -35,4 +35,4 @@ branchConfigs:
               - values-prod.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: false
+      enabled: true
