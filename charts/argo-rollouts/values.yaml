@@ -1,1 +1,13 @@
 argo-rollouts:
+  controller:
+    # -- Labels to be added to the application controller pods
+    podLabels: {}
+
+    # -- The number of controller pods to run
+    replicas: 1
+
+    # -- Additional environment variables for rollouts-controller. A list of name/value maps.
+    extraEnv: []
+
+    # -- Resource limits and requests for the controller pods.
+    resources: {}
