@@ -2,6 +2,11 @@ permissions:
   contents: write
   pull-requests: write
 
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+
 jobs:
   render-test-manifests-stage:
     name: Render test manifests
@@ -10,7 +15,7 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/test
   render-stage-manifests-stage:
     name: Render staging manifests
@@ -19,7 +24,7 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/staging
   render-prod-manifests-stage:
     name: Render prod manifests
@@ -28,5 +33,5 @@ jobs:
       - name: Render manifests
         uses: akuity/kargo-render-action@v0.1.0-rc.35
         with:
-          personalAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/prod

@@ -11,7 +11,7 @@ branchConfigs:
               - charts/argo-rollouts/values-test.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: false # Changes should immediately be propagated to test envs
+      enabled: false 
   - name: env/staging
     appConfigs:
       rollouts:
