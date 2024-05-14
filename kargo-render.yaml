@@ -8,10 +8,10 @@ branchConfigs:
           helm:
             releaseName: argo-rollouts
             valueFiles:
-              - charts/argo-rollouts/values-test.yaml
+              - values-test.yaml
         outputPath: rollouts-rendered
     prs:
-      enabled: false 
+      enabled: false
   - name: env/staging
     appConfigs:
       rollouts:
@@ -20,7 +20,7 @@ branchConfigs:
           helm:
             releaseName: argo-rollouts
             valueFiles:
-              - charts/argo-rollouts/values-staging.yaml
+              - values-staging.yaml
         outputPath: rollouts-rendered
     prs:
       enabled: true
@@ -32,7 +32,7 @@ branchConfigs:
           helm:
             releaseName: argo-rollouts
             valueFiles:
-              - charts/argo-rollouts/values-prod.yaml
+              - values-prod.yaml
         outputPath: rollouts-rendered
     prs:
       enabled: true
