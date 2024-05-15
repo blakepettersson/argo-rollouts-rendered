@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: blakepettersson/kargo-render-action@blake-test
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/test
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: blakepettersson/kargo-render-action@blake-test
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/staging
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+        uses: blakepettersson/kargo-render-action@blake-test
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: env/prod
