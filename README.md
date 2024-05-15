@@ -44,21 +44,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  render-test-manifests-stage:
-    name: Render test manifests
+  render-manifests:
+    name: Render and Commit Manifests (or submit a PR)
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targetBranch:
+          - env/test
+          - env/staging
+          - env/prod
     steps:
-      - name: Render manifests
-        uses: akuity/kargo-render-action@v0.1.0-rc.35
+      - uses: blakepettersson/kargo-render-action@blake-test # This has the most current version of Kargo Render
         with:
-          # A personal PAT is required for this to work
           personalAccessToken: ${{ secrets.MY_PAT }}
-          targetBranch: env/test
-        # Workaround for an issue with Helm on Github Actions - need to upgrade Kargo render to resolve this  
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
+          targetBranch: ${{ matrix.targetBranch }}
 ```
 
 To try this out, an ApplicationSet can be used which refers to the rendered manifest branches:

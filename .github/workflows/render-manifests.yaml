@@ -10,17 +10,16 @@ on:
 
 jobs:
   render-manifests:
-    name: Render and Commit Manifests
+    name: Render and Commit Manifests (or submit a PR)
     runs-on: ubuntu-latest
     strategy:
       matrix:
         targetBranch:
-          - env/dev
+          - env/test
           - env/staging
           - env/prod
     steps:
-      - name: Render and Commit Manifests (or submit a PR)
-        uses: blakepettersson/kargo-render-action@blake-test
+      - uses: blakepettersson/kargo-render-action@blake-test
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
           targetBranch: ${{ matrix.targetBranch }}
