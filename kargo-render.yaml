@@ -1,7 +1,9 @@
 configVersion: v1alpha1
 branchConfigs:
+  # The branch to render to.
   - name: env/test
     appConfigs:
+      # Rollouts app, multiple apps can be configured if needed
       rollouts:
         configManagement:
           path: charts/argo-rollouts
@@ -9,9 +11,10 @@ branchConfigs:
             releaseName: argo-rollouts
             valueFiles:
               - values-test.yaml
+        # The path the rendered output of `charts/argo-rollouts` should be rendered to on `env/test`
         outputPath: rollouts-rendered
     prs:
-      enabled: false # Test branch always gets
+      enabled: false # Whether PRs should be created for this branch; for env/test we instead merge directly
   - name: env/staging
     appConfigs:
       rollouts:
