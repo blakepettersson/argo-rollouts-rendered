@@ -4,46 +4,23 @@ permissions:
 
 on:
   push:
-    branches: ['main']
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  render-test-manifests-stage:
-    name: Render test manifests
+  render-manifests:
+    name: Render and Commit Manifests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targetBranch:
+          - env/dev
+          - env/staging
+          - env/prod
     steps:
-      - name: Render manifests
+      - name: Render and Commit Manifests (or submit a PR)
         uses: blakepettersson/kargo-render-action@blake-test
         with:
           personalAccessToken: ${{ secrets.MY_PAT }}
-          targetBranch: env/test
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
-  render-stage-manifests-stage:
-    name: Render staging manifests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Render manifests
-        uses: blakepettersson/kargo-render-action@blake-test
-        with:
-          personalAccessToken: ${{ secrets.MY_PAT }}
-          targetBranch: env/staging
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
-  render-prod-manifests-stage:
-    name: Render prod manifests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Render manifests
-        uses: blakepettersson/kargo-render-action@blake-test
-        with:
-          personalAccessToken: ${{ secrets.MY_PAT }}
-          targetBranch: env/prod
-        env:
-          XDG_CONFIG_HOME: /tmp
-          XDG_CACHE_HOME: /tmp
-          XDG_DATA_HOME: /tmp
+          targetBranch: ${{ matrix.targetBranch }}
